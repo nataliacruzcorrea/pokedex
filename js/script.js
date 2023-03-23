@@ -45,7 +45,13 @@ const renderPokemon = async (pokemon) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  renderPokemon(input.value.toLowerCase());
+  if (input.value <= 649) {
+    renderPokemon(input.value.toLowerCase());
+  } else {
+    pokemonName.innerHTML = "Not found :c";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.style.display = "none";
+  }
 });
 
 buttonPrev.addEventListener("click", () => {
@@ -56,8 +62,10 @@ buttonPrev.addEventListener("click", () => {
 });
 
 buttonNext.addEventListener("click", () => {
-  searchPokemon++;
-  renderPokemon(searchPokemon);
+  if (searchPokemon < 649) {
+    searchPokemon++;
+    renderPokemon(searchPokemon);
+  }
 });
 
 renderPokemon(searchPokemon);
