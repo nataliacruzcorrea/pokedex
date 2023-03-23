@@ -45,12 +45,12 @@ const renderPokemon = async (pokemon) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (input.value <= 649) {
-    renderPokemon(input.value.toLowerCase());
-  } else {
+  if (input.value > 649) {
     pokemonName.innerHTML = "Not found :c";
     pokemonNumber.innerHTML = "";
     pokemonImage.style.display = "none";
+  } else {
+    renderPokemon(input.value.toLowerCase());
   }
 });
 
